@@ -28,4 +28,3 @@ def login():
     # Add logic to verify user credentials
     access_token = create_access_token(identity=data['username'])
     return jsonify(access_token=access_token), 200
-</create_file>
