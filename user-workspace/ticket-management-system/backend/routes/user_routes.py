@@ -9,6 +9,9 @@ def register():
     data = request.get_json()
     db = SessionLocal()
     try:
+        if not all(key in data for key in ('username', 'password', 'email')):
+            return jsonify({'error': 'Missing fields in request'}), 400
+        
         new_user = User(username=data['username'], password=data['password'], email=data['email'])
         
         # Save the user to the database
@@ -18,7 +21,7 @@ def register():
         
         return jsonify({'message': 'User created successfully'}), 201
     except Exception as e:
-        return jsonify({'error': str(e)}), 400
+        return jsonify({'error': f'An error occurred: {str(e)}'}), 400
     finally:
         db.close()
 
