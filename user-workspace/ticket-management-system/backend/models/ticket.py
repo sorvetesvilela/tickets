@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from . import Base
+from database import Base  # Corrigindo a importação
 
 class Ticket(Base):
     __tablename__ = 'tickets'
