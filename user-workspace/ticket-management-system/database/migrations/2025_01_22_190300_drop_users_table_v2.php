@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class DropUsersTable extends Migration
+class DropUsersTableV2 extends Migration
 {
     /**
      * Run the migrations.
