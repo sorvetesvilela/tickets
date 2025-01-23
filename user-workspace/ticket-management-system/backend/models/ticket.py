@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from database import Base  # Corrigindo a importação
+from database import Base
 
 class Ticket(Base):
     __tablename__ = 'tickets'
@@ -11,8 +11,8 @@ class Ticket(Base):
     status_id = Column(Integer, ForeignKey('statuses.id'), nullable=False)
     department_id = Column(Integer, ForeignKey('departments.id'), nullable=False)
 
-    status = relationship("Status")
-    department = relationship("Department")
+    status = relationship("Status", back_populates="tickets")
+    department = relationship("Department", back_populates="tickets")
 
     def __repr__(self):
         return f'<Ticket {self.title}>'
