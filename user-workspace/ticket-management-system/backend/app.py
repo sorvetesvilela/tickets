@@ -12,5 +12,12 @@ app.register_blueprint(user_routes)
 app.register_blueprint(department_routes)
 app.register_blueprint(ticket_routes)
 
+@app.route('/routes', methods=['GET'])
+def list_routes():
+    routes = []
+    for rule in app.url_map.iter_rules():
+        routes.append(str(rule))
+    return jsonify(routes)
+
 if __name__ == '__main__':
     app.run(debug=True)
