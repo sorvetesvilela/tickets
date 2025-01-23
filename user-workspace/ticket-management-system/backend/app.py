@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify  # Adicionando jsonify aqui
 from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
