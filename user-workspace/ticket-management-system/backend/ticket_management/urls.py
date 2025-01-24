@@ -3,5 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Incluir URLs dos aplicativos aqui
+    path('tickets/', include('tickets.urls')),  # Incluindo as URLs do módulo tickets
 ]

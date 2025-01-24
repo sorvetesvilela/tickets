@@ -1,5 +1,9 @@
 from flask import Blueprint, request, jsonify
 from models.status import Status
+from marshmallow import Schema, fields, ValidationError
+
+class StatusSchema(Schema):
+    name = fields.Str(required=True)
 from database import SessionLocal
 
 status_routes = Blueprint('status_routes', __name__)  # Definindo o blueprint

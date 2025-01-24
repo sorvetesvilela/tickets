@@ -18,7 +18,7 @@ SECRET_KEY = 'your-secret-key'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['xyglf8-8000.csb.app', '127.0.0.1']  # Adicionando o domínio e o localhost permitido
 
 # Application definition
 INSTALLED_APPS = [
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'users',
     'departments',
     'tickets',
-    'workflows',
+    # 'workflows',  # Comentando o módulo workflows
 ]
 
 MIDDLEWARE = [

@@ -6,12 +6,14 @@ app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Change this to a random 
 jwt = JWTManager(app)
 
 # Import routes here
-from routes import user_routes, department_routes, ticket_routes  # Removendo status_routes por enquanto
+from routes import user_routes, department_routes, ticket_routes
+from tickets.urls import tickets  # Importing tickets module
 from routes.status_routes import status_routes  # Importando status_routes separadamente
 
 app.register_blueprint(user_routes)
 app.register_blueprint(department_routes)
 app.register_blueprint(ticket_routes)
+app.register_blueprint(tickets)  # Registrando tickets module
 app.register_blueprint(status_routes)  # Registrando status_routes
 
 @app.route('/routes', methods=['GET'])

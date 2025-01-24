@@ -1,5 +1,12 @@
 from flask import request, jsonify
 from database import SessionLocal
+from marshmallow import Schema, fields, ValidationError
+
+class TicketSchema(Schema):
+    title = fields.Str(required=True)
+    description = fields.Str(required=True)
+    status_id = fields.Int(required=True)
+    department_id = fields.Int(required=True)
 from models.ticket import Ticket
 from models.status import Status
 from models.department import Department

@@ -3,3 +3,4 @@ djangorestframework
 Flask
 flask-jwt-extended
 SQLAlchemy
+marshmallow

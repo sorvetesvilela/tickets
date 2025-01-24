@@ -1,6 +1,10 @@
 from flask import request, jsonify
 from . import department_routes
 from models.department import Department
+from marshmallow import Schema, fields, ValidationError
+
+class DepartmentSchema(Schema):
+    name = fields.Str(required=True)
 from database import SessionLocal
 
 @department_routes.route('/departments', methods=['POST'])
