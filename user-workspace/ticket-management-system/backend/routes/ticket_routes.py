@@ -1,4 +1,5 @@
 from flask import request, jsonify
+from flask_jwt_extended import jwt_required
 from database import SessionLocal
 from marshmallow import Schema, fields, ValidationError
 
@@ -14,7 +15,12 @@ from . import ticket_routes
 
 @ticket_routes.route('/tickets', methods=['POST'])
 def create_ticket():
-    data = request.get_json()
+    data = request.get_json()  
+    # Validate the incoming data
+    try:
+        TicketSchema().load(data)
+    except ValidationError as err:
+        return jsonify({'error': err.messages}), 400
     db = SessionLocal()
     try:
         new_ticket = Ticket(title=data['title'], description=data['description'], status_id=data['status_id'], department_id=data['department_id'])
@@ -40,7 +46,12 @@ def get_tickets():
 
 @ticket_routes.route('/tickets/<int:ticket_id>', methods=['PUT'])
 def update_ticket(ticket_id):
-    data = request.get_json()
+    data = request.get_json()  
+    # Validate the incoming data
+    try:
+        TicketSchema().load(data)
+    except ValidationError as err:
+        return jsonify({'error': err.messages}), 400
     db = SessionLocal()
     try:
         ticket = db.query(Ticket).filter(Ticket.id == ticket_id).first()

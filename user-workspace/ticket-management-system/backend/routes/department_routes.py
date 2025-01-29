@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify
 from marshmallow import Schema, fields, ValidationError
 from models.department import Department
+from models.access import DepartmentAccess  # Importando o modelo de controle de acesso
+from models.user import User  # Importando o modelo de usuário
 from database import SessionLocal
 
 department_routes = Blueprint('department_routes', __name__)

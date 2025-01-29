@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify
 from models.status import Status
+from models.department import Department  # Importando o modelo de departamento
 from marshmallow import Schema, fields, ValidationError
+from database import SessionLocal
 
 class StatusSchema(Schema):
     name = fields.Str(required=True)

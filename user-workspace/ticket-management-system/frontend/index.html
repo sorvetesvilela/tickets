@@ -13,6 +13,21 @@
     <main>
         <h2>Tickets</h2>
         <div id="ticket-list">
+            <h3>Lista de Tickets</h3>
+            <ul id="tickets"></ul> <!-- Lista de tickets será carregada aqui -->
+        </div>
+        <form id="ticket-form">
+            <h3>Criar Novo Ticket</h3>
+            <label for="title">Título:</label>
+            <input type="text" id="title" required>
+            <label for="description">Descrição:</label>
+            <textarea id="description" required></textarea>
+            <label for="status_id">Status ID:</label>
+            <input type="number" id="status_id" required>
+            <label for="department_id">Departamento ID:</label>
+            <input type="number" id="department_id" required>
+            <button type="submit">Criar Ticket</button>
+        </form>
             <!-- Lista de tickets será carregada aqui -->
         </div>
         <button id="new-ticket">Criar Novo Ticket</button>
